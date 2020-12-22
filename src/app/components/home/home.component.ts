@@ -7,11 +7,11 @@ import { DataServiceService } from 'src/app/services/data-service.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  private totalActive = 0;
-  private totalRecovered = 0;
-  private totalDeaths = 0;
-  private totalConfirmed = 0;
-  private globalData;
+  totalActive = 0;
+  totalRecovered = 0;
+  totalDeaths = 0;
+  totalConfirmed = 0;
+  globalData;
   constructor(private dataService: DataServiceService) {}
 
   ngOnInit(): void {

@@ -10,6 +10,10 @@ import { DataServiceService } from 'src/app/services/data-service.service';
 export class CountriesComponent implements OnInit {
   data: GlobalDataSummary[];
   countries: string[] = [];
+  totalActive = 0;
+  totalRecovered = 0;
+  totalDeaths = 0;
+  totalConfirmed = 0;
   constructor(private service: DataServiceService) {}
 
   ngOnInit(): void {
@@ -18,6 +22,17 @@ export class CountriesComponent implements OnInit {
       this.data.forEach((cs) => {
         this.countries.push(cs.country);
       });
+    });
+  }
+
+  updateValues(country: string) {
+    this.data.forEach((cs) => {
+      if (cs.country == country) {
+        this.totalActive = cs.active;
+        this.totalConfirmed = cs.confirmed;
+        this.totalDeaths = cs.deaths;
+        this.totalRecovered = cs.recovered;
+      }
     });
   }
 }
