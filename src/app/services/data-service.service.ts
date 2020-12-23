@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { GlobalDataSummary } from '../Model/global-data';
 
@@ -9,7 +8,7 @@ import { GlobalDataSummary } from '../Model/global-data';
 })
 export class DataServiceService {
   private globalDataUrl: string =
-    'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/12-19-2020.csv';
+    'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/12-20-2020.csv';
   constructor(private http: HttpClient) {}
 
   getGlobalData() {
@@ -37,7 +36,7 @@ export class DataServiceService {
           }
           raw[cs.country] = cs;
         });
-        return <GlobalDataSummary[]> Object.values(raw);
+        return <GlobalDataSummary[]>Object.values(raw);
       })
     );
   }
